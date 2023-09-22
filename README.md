@@ -1,8 +1,8 @@
 게시판 만들기
 
-*spring
-*java jdk111버전
-*mysql
-*inteli j
-*tomcat 9
-*aws
+*spring</br>
+*java jdk111버전</br>
+*mysql</br>
+*inteli j</br>
+*tomcat 9</br>
+*aws</br>
