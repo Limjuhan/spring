@@ -5,13 +5,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>fastcampus</title>
+    <title>게시판(글 목록)</title>
     <link rel="stylesheet" href="<c:url value='/css/menu.css'/>">
 </head>
 <body>
 <div id="menu">
     <ul>
-        <li id="logo">fastcampus</li>
+        <li id="logo">게시판(글목록)</li>
         <li><a href="<c:url value='/'/>">Home</a></li>
         <li><a href="<c:url value='/board/list'/>">Board</a></li>
         <li><a href="<c:url value='/login/login'/>">login</a></li>
@@ -19,6 +19,13 @@
         <li><a href=""><i class="fas fa-search small"></i></a></li>
     </ul>
 </div>
+<script>
+    let msg = "${msg}"//컨트롤러에서 모델에담은 msg를 jsp에서 받기({param.msg})-> rattr에 담는걸로 바꾸면서 {param.msg}->{msg}로 변경
+    if(msg=="WRT_OK") alert("게시물이 등록되었습니다..")
+    if(msg=="DEL_OK") alert("성공적으로 삭제되었습니다.")
+    if(msg=="DEL_ERR") alert("삭제에 실패하였습니다..")
+</script>
+
 <%--
 tr-테이블의 한줄영역을 뜻함
 <tr> </tr>
@@ -31,6 +38,7 @@ tr-테이블의 한줄영역을 뜻함
 <table border="1"은 테두리를 뜻함. 숫자가 커질수록 테두리가 커짐
 --%>
 <div style="text-align:center">
+    <button type="button" id="writeBtn" onclick="location.href='<c:url value="/board/write"/>'">글쓰기</button>
     <table border="1">
         <tr>
             <th>번호</th>
@@ -39,13 +47,13 @@ tr-테이블의 한줄영역을 뜻함
             <th>등록일</th>
             <th>조회수</th>
         </tr>
-        <c:forEach var="board" items="${list}">
+        <c:forEach var="boardDto" items="${list}">
         <tr>
-            <td>${board.bno}</td>
-            <td>${board.title}</td>
-            <td>${board.writer}</td>
-            <td>${board.reg_date}</td>
-            <td>${board.view_cnt}</td>
+            <td>${boardDto.bno}</td>
+            <td><a href="<c:url value='/board/read?bno=${boardDto.bno}&page=${page}&pageSize=${pageSize}'/>">${boardDto.title}</a></td>
+            <td>${boardDto.writer}</td>
+            <td>${boardDto.reg_date}</td>
+            <td>${boardDto.view_cnt}</td>
         </tr>
         </c:forEach>
     </table>
