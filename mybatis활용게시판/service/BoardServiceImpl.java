@@ -12,6 +12,8 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     BoardDao boardDao;
 
+
+
     @Override
     public int getCount() throws Exception {
         return boardDao.count();
