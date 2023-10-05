@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--파라미터 타입작성시 생략위해 aliase 작성.
+    작성 안할시 mapper에서 파라미터타입 "com.fastcampus.ch4.domain.SearchCondition"으로 작성해야됨-->
+    <typeAliases>
+        <typeAlias alias="BoardDto" type="com.fastcampus.ch4.domain.BoardDto"/>
+        <typeAlias alias="SearchCondition" type="com.fastcampus.ch4.domain.SearchCondition"/>
+    </typeAliases>
+
+</configuration>
