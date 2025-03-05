@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* 테두리를 포함한 모든 태그요소들에 크기를 보여준다. */
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #2c3e50;
+    background-color: #f0f8ff;
+    animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+.container{
+    display: block;
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 0;
+    font-size: 300%;
+    color: #34495e;
+}
+
+.calculator{
+    display:inline-block;
+}
+
+input{
+    direction: ltr;
+    /* 입력방향을 왼쪽에서 오른쪽으로 설정 */
+    background-color: #ffffff;
+    width:80vw;
+    font-size: 3rem;
+    color:#2c3e50;
+    border:2px solid #bdc3c7;
+    border-radius: 1rem; /*모서리 둥글기정도*/
+}
+
+table{
+    margin:0 auto;/*display속성이 block인 태그들을 가운데로 이동*/
+}
+
+button{
+    /* border:none; */
+    background-color: #ecf0f1;
+    width:20vw;
+    height:10vw;
+    font-size:2rem;
+    border-radius: 0.5rem;
+    color: #2c3e50;
+    transition: box-shadow 03s ease,transform 0.2s ease;
+}
+
+/*버튼 클릭시*/
+button:active{
+    transform: scale(0.95);
+    box-shadow: 3px 2px 22px 1px rgba(0,0,0,0.15);
+}
+
+button:hover{
+    transform:scale(0.95);
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.2);
+}
