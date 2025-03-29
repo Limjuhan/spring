@@ -39,6 +39,15 @@
     </div>
 
     <hr class="my-4">
+    <!-- single checkbox -->
+    <div>판매 여부</div>
+    <div>
+        <div class="form-check">
+            <!--th:field="*{open}"이 _open 히든필드 생성처리까지해줌. -->
+            <input type="checkbox" id="open" name="open" th:field="${item.open}" class="form-check-input" disabled>
+            <label for="open" class="form-check-label">판매 오픈</label>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col">

@@ -17,22 +17,34 @@
     <div class="py-5 text-center">
         <h2>상품 등록 폼</h2>
     </div>
-
-    <form action="item.html" th:action method="post">
+        <!-- 모델에서 전달한 빈item 을 th:object="{item}" 으로 받는다 -->
+    <form action="item.html" th:action th:object="${item}" method="post">
         <div>
             <label for="itemName">상품명</label>
-            <input type="text" id="itemName" name="itemName" class="form-control" placeholder="이름을 입력하세요">
+            <!-- th:object에서 item을 사용한경우 th:field"*{itemName}"으로 name="itemName",id="itemName" value=""대체 가능-->
+            <input type="text" id="itemName" th:field="*{itemName}" class="form-control" placeholder="이름을 입력하세요">
         </div>
         <div>
             <label for="price">가격</label>
-            <input type="text" id="price" name="price" class="form-control" placeholder="가격을 입력하세요">
+            <input type="text" id="price" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
         </div>
         <div>
             <label for="quantity">수량</label>
-            <input type="text" id="quantity" name="quantity" class="form-control" placeholder="수량을 입력하세요">
+            <input type="text" id="quantity" th:field="*{quantity}" class="form-control" placeholder="수량을 입력하세요">
         </div>
 
         <hr class="my-4">
+
+        <!-- single checkbox -->
+        <div>판매 여부</div>
+        <div>
+            <div class="form-check">
+                <!--th:field="*{open}"이 _open 히든필드 생성처리까지해줌. -->
+                <input type="checkbox" id="open" name="open" th:field="${item.open}" class="form-check-input">
+<!--                <input type="hidden" name="_open" value="on">&lt;!&ndash; 히든 필드 추가 &ndash;&gt;-->
+                <label for="open" class="form-check-label">판매 오픈</label>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col">
