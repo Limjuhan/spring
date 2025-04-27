@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.sql.SQLException;
 import java.util.NoSuchElementException;
@@ -17,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MemberRepositoryV1Test {
     private static final Logger log = LoggerFactory.getLogger(MemberRepositoryV1Test.class);
-    MemberRepositoryV1 memberRepository;
+    MemberRepositoryV2 memberRepository;
 
     @BeforeEach
     void beforeEach() {
@@ -30,7 +29,7 @@ class MemberRepositoryV1Test {
         dataSource.setUsername(USERNAME);
         dataSource.setPassword(PASSWORD);
 
-        memberRepository = new MemberRepositoryV1(dataSource);
+        memberRepository = new MemberRepositoryV2(dataSource);
     }
 
     @Test
